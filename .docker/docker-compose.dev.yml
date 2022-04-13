@@ -1,11 +1,8 @@
 version: "3.9"
 services:
   project:
-    # Built by github actions
+    # Built by github actions from Dockerfile.dev
     image: utkusarioglu/plantuml-dev-environment
-    # build:
-    #   context: ..
-    #   dockerfile: .docker/Dockerfile.dev
     container_name: sumer-project
     working_dir: /usr/src/app/project
     volumes:
