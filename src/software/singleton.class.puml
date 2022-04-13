@@ -1,0 +1,30 @@
+@startuml Singleton Pattern
+!include theme.puml
+title Singleton Pattern
+
+class Application
+class Creator {
+  - instance : Singleton
+  + getInstance() : Singleton
+}
+class Singleton
+
+note right of Creator::getInstance()
+<code>
+  if(!this.instance) {
+    this.instance = new Singleton();
+  }
+  return this.instance;
+</code>
+end note
+
+Application "1" -* "*" Creator
+Creator "1" -* "1" Singleton
+
+legend
+Creator ensures that there is only one instance of the Singleton.
+Instantiation parameters of the Signleton can be provided through 
+the Creator.
+end legend
+
+@enduml

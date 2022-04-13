@@ -1,0 +1,40 @@
+@startuml Abstract Factory Pattern
+!include theme.puml
+title Abstract Factory Pattern
+
+interface IAbstractFactory {
+  + createFactory() : IFactory
+}
+interface IFactory {
+  + getChild1() : IChild1
+  + getChild2() : IChild2
+}
+interface IChild1
+interface IChild2
+class Application
+class AbstractFactory 
+class Factory
+class Child1
+class Child2
+
+AbstractFactory .|> IAbstractFactory
+Factory .|> IFactory
+Child1 .|> IChild1 
+Child2 .|> IChild2
+
+Application "1" -* "*" AbstractFactory
+AbstractFactory "1" -o "*" Factory
+Child1 "*" -* "1" Factory
+Child2 "*" -* "1" Factory
+
+legend
+AbstractFactory is an abstraction between Application and numerous 
+Factories. Instantiation of AbstractFactory results of the object
+assuming the shape of a particular Factory. This object can then 
+produce any Child that the Application requires.
+
+There can be a countles number of children that realizes unrelated
+interfaces.
+end legend
+
+@enduml

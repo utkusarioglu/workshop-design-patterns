@@ -2,25 +2,18 @@
 !include theme.puml
 title Factory Pattern
 
-interface IParent {
-  + createChild() 
+interface IFactory {
+  + createChild() : IChild
 }
 interface IChild 
 class Application 
-class Parent1
-class Parent2
-class Child1 
-class Child2
+class Factory
+class Child
 
-Application -* IParent
+Factory .|> IFactory
+Child .|> IChild
 
-Parent1 .|> IParent
-Parent2 .|> IParent
-
-Child1 .|> IChild
-Child2 .|> IChild
-
-Parent2 -o Child1
-Parent1 -o Child2
+Application "1" -* "*" IFactory
+Factory "1" -o "*" Child
 
 @enduml
