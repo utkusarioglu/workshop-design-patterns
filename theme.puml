@@ -16,4 +16,9 @@ skinparam linetype ortho
 skinparam boundary {
   FontColor $SECONDARY_TEXT
 }
+
+skinparam legend {
+  BorderColor $DARK
+  BackgroundColor $LIGHT
+}
 @enduml
